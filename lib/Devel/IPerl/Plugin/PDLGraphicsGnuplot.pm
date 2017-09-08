@@ -6,6 +6,8 @@ use warnings;
 
 use PDL::Graphics::Gnuplot;
 use Role::Tiny;
+use Devel::IPerl::Display::SVG;
+use Devel::IPerl::Display::PNG;
 
 our $IPerl_compat = 1;
 our $IPerl_format = 'SVG';
