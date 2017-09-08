@@ -1,4 +1,4 @@
-use Test::Most;
+use Test::Most tests => 1;
 
 use strict;
 use warnings;
@@ -8,8 +8,6 @@ use Devel::IPerl::Plugin::PDLGraphicsGnuplot;
 use IPerl;
 use PDL;
 use PDL::Constants qw(PI);
-
-plan tests => 1;
 
 IPerl->load_plugin($_) for qw(PDLGraphicsGnuplot CoreDisplay);
 
