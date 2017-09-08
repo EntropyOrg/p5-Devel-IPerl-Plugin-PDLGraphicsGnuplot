@@ -3,7 +3,6 @@ abstract: 'IPerl plugin to make PDL::Graphics::Gnuplot plots displayable'
 author:
   - 'Zakariyya Mughal <zmughal@cpan.org>'
 build_requires:
-  IPerl: '0'
   PDL: '0'
   PDL::Constants: '0'
   Test::Most: '0'
@@ -20,6 +19,8 @@ meta-spec:
 name: Devel-IPerl-Plugin-PDLGraphicsGnuplot
 requires:
   Capture::Tiny: '0'
+  Devel::IPerl::Display::PNG: '0'
+  Devel::IPerl::Display::SVG: '0'
   File::Temp: '0'
   Moo::Role: '0'
   PDL::Graphics::Gnuplot: '0'
@@ -30,5 +31,5 @@ requires:
 resources:
   homepage: https://github.com/EntropyOrg/p5-Devel-IPerl-Plugin-PDLGraphicsGnuplot
   repository: https://github.com/EntropyOrg/p5-Devel-IPerl-Plugin-PDLGraphicsGnuplot.git
-version: '0.007'
+version: '0.008'
 x_serialization_backend: 'YAML::Tiny version 1.70'

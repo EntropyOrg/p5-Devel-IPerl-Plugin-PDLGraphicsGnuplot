@@ -1,11 +1,13 @@
 package Devel::IPerl::Plugin::PDLGraphicsGnuplot;
 # ABSTRACT: IPerl plugin to make PDL::Graphics::Gnuplot plots displayable
-$Devel::IPerl::Plugin::PDLGraphicsGnuplot::VERSION = '0.007';
+$Devel::IPerl::Plugin::PDLGraphicsGnuplot::VERSION = '0.008';
 use strict;
 use warnings;
 
 use PDL::Graphics::Gnuplot;
 use Role::Tiny;
+use Devel::IPerl::Display::SVG;
+use Devel::IPerl::Display::PNG;
 
 our $IPerl_compat = 1;
 our $IPerl_format = 'SVG';
@@ -108,7 +110,7 @@ Devel::IPerl::Plugin::PDLGraphicsGnuplot - IPerl plugin to make PDL::Graphics::G
 
 =head1 VERSION
 
-version 0.007
+version 0.008
 
 =head1 AUTHOR
 

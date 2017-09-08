@@ -18,6 +18,8 @@ my %WriteMakefileArgs = (
   "NAME" => "Devel::IPerl::Plugin::PDLGraphicsGnuplot",
   "PREREQ_PM" => {
     "Capture::Tiny" => 0,
+    "Devel::IPerl::Display::PNG" => 0,
+    "Devel::IPerl::Display::SVG" => 0,
     "File::Temp" => 0,
     "Moo::Role" => 0,
     "PDL::Graphics::Gnuplot" => 0,
@@ -26,12 +28,11 @@ my %WriteMakefileArgs = (
     "warnings" => 0
   },
   "TEST_REQUIRES" => {
-    "IPerl" => 0,
     "PDL" => 0,
     "PDL::Constants" => 0,
     "Test::Most" => 0
   },
-  "VERSION" => "0.007",
+  "VERSION" => "0.008",
   "test" => {
     "TESTS" => "t/*.t"
   }
@@ -40,8 +41,9 @@ my %WriteMakefileArgs = (
 
 my %FallbackPrereqs = (
   "Capture::Tiny" => 0,
+  "Devel::IPerl::Display::PNG" => 0,
+  "Devel::IPerl::Display::SVG" => 0,
   "File::Temp" => 0,
-  "IPerl" => 0,
   "Moo::Role" => 0,
   "PDL" => 0,
   "PDL::Constants" => 0,

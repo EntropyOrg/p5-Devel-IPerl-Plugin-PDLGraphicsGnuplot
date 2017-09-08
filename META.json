@@ -23,6 +23,8 @@
       "runtime" : {
          "requires" : {
             "Capture::Tiny" : "0",
+            "Devel::IPerl::Display::PNG" : "0",
+            "Devel::IPerl::Display::SVG" : "0",
             "File::Temp" : "0",
             "Moo::Role" : "0",
             "PDL::Graphics::Gnuplot" : "0",
@@ -34,7 +36,6 @@
       },
       "test" : {
          "requires" : {
-            "IPerl" : "0",
             "PDL" : "0",
             "PDL::Constants" : "0",
             "Test::Most" : "0",
@@ -51,7 +52,7 @@
          "web" : "https://github.com/EntropyOrg/p5-Devel-IPerl-Plugin-PDLGraphicsGnuplot"
       }
    },
-   "version" : "0.007",
+   "version" : "0.008",
    "x_serialization_backend" : "Cpanel::JSON::XS version 3.0238"
 }
 
