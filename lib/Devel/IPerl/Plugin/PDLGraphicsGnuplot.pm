@@ -1,8 +1,11 @@
 package Devel::IPerl::Plugin::PDLGraphicsGnuplot;
+# ABSTRACT: IPerl plugin to make PDL::Graphics::Gnuplot plots displayable
 
 use strict;
 use warnings;
 
+use PDL::Graphics::Gnuplot;
+use Role::Tiny;
 
 our $IPerl_compat = 1;
 our $IPerl_format = 'SVG';
@@ -13,10 +16,6 @@ our $IPerl_format_info = {
 };
 
 sub register {
-	# needed for the plugin
-	require PDL::Graphics::Gnuplot;
-	require Role::Tiny;
-
 	Role::Tiny->apply_roles_to_package( 'PDL::Graphics::Gnuplot', q(Devel::IPerl::Plugin::PDLGraphicsGnuplot::IPerlRole) );
 }
 

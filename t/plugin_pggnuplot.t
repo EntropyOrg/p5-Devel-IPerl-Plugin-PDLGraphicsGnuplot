@@ -1,18 +1,13 @@
-use Test::Most;
+use Test::Most tests => 1;
 
 use strict;
 use warnings;
 
-eval "
 use PDL::Graphics::Gnuplot;
 use Devel::IPerl::Plugin::PDLGraphicsGnuplot;
 use IPerl;
 use PDL;
 use PDL::Constants qw(PI);
-";
-plan skip_all => "PDL::Graphics::Gnuplot required for testing Gnuplot plugin" if $@;
-
-plan tests => 1;
 
 IPerl->load_plugin($_) for qw(PDLGraphicsGnuplot CoreDisplay);
 
