@@ -1,0 +1,4 @@
+0.007 2017-09-08 01:40:38-0400
+  Refactoring
+    - Split out PDLGraphicsGnuplot plugin to separate distribution.
+      See <https://github.com/EntropyOrg/p5-Devel-IPerl/pull/75>.
