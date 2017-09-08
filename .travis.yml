@@ -1,0 +1,29 @@
+language: perl
+sudo: false
+dist: trusty
+cache:
+  directories:
+    # local::lib caching
+    - $HOME/perl5
+addons:
+  apt:
+    packages:
+      - aspell     # for dzil Test::PodSpelling
+      - aspell-en  # for dzil Test::PodSpelling
+perl:
+  - "5.14"
+  - "5.16"
+  - "5.20"
+  #- "blead"
+matrix:
+  include:
+    - perl: "5.20"
+      env: COVERAGE=1
+before_install:
+  - export DEVOPS_BRANCH="master"
+  - eval "$(curl https://raw.githubusercontent.com/project-renard/devops/$DEVOPS_BRANCH/script/helper.pl | perl -- | awk '/^#START/,/^#END/ { print > "/dev/stdout"; next } { print > "/dev/stderr"}' )"
+branches:
+  except:
+    - /^wip\//
+    - /^blocked/
+sudo: true

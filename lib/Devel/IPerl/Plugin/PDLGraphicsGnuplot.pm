@@ -1,4 +1,5 @@
 package Devel::IPerl::Plugin::PDLGraphicsGnuplot;
+# ABSTRACT: IPerl plugin to make PDL::Graphics::Gnuplot plots displayable
 
 use strict;
 use warnings;
