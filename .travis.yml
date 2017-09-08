@@ -8,6 +8,7 @@ cache:
 addons:
   apt:
     packages:
+      - gnuplot-nox
       - aspell     # for dzil Test::PodSpelling
       - aspell-en  # for dzil Test::PodSpelling
 perl:
