@@ -8,6 +8,7 @@ cache:
 addons:
   apt:
     packages:
+      - libzmq3-dev
       - gnuplot-nox
       - aspell     # for dzil Test::PodSpelling
       - aspell-en  # for dzil Test::PodSpelling
