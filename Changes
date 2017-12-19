@@ -1,4 +1,4 @@
-0.009 2017-12-19 13:58:27-0600
+0.010 2017-12-19 14:07:32-0600
 
   Fixes
     - Use an unopened temporary filename for output so that file access is not
