@@ -35,6 +35,10 @@ around new => sub {
 	my $gpwin = $orig->(@_);
 
 	if( $Devel::IPerl::Plugin::PDLGraphicsGnuplot::IPerl_compat ) {
+		# We turn on dumping so that the plot does not go to an actual
+		# terminal (a "dry-run"). This is so that we can actually have
+		# the output go to a terminal later when
+		# C<iperl_data_representations> is called.
 		capture_stderr(sub {
 			# capture to avoid printing out the dumping warning
 			$gpwin->option( dump => 1 );
