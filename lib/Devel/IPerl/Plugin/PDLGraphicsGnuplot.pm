@@ -27,7 +27,7 @@ package
 
 use Moo::Role;
 use Capture::Tiny qw(capture_stderr capture_stdout);
-use File::Temp;
+use Path::Tiny;
 
 around new => sub {
 	my $orig = shift;
@@ -75,15 +75,11 @@ sub iperl_data_representations {
 	my $suffix = $format_info->{$format}{suffix};
 	my $displayable = $format_info->{$format}{displayable};
 
-	my $tmp = File::Temp->new( SUFFIX => $suffix );
-	my $tmp_filename = $tmp->filename;
+	my $tmp_filename = Path::Tiny->tempfile( SUFFIX => $suffix );
 	capture_stderr( sub {
-	#$w->output( 'pngcairo', solid=>1, color=>1,font=>'Arial,10',size=>[11,8.5,'in'] );
-	#$gpwin->output( 'pngcairo', solid=>1, color=>1,font=>'Arial,10',size=>[11,8.5,'in'] );
-	$gpwin->option( hardcopy => $tmp_filename );
-	$gpwin->replot();
-	$gpwin->close;
-
+		$gpwin->option( hardcopy => "$tmp_filename" );
+		$gpwin->replot();
+		$gpwin->close;
 	});
 
 	capture_stderr( sub  {
