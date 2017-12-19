@@ -1,6 +1,6 @@
 package Devel::IPerl::Plugin::PDLGraphicsGnuplot;
 # ABSTRACT: IPerl plugin to make PDL::Graphics::Gnuplot plots displayable
-$Devel::IPerl::Plugin::PDLGraphicsGnuplot::VERSION = '0.008';
+$Devel::IPerl::Plugin::PDLGraphicsGnuplot::VERSION = '0.009';
 use strict;
 use warnings;
 
@@ -110,7 +110,7 @@ Devel::IPerl::Plugin::PDLGraphicsGnuplot - IPerl plugin to make PDL::Graphics::G
 
 =head1 VERSION
 
-version 0.008
+version 0.009
 
 =head1 AUTHOR
 
