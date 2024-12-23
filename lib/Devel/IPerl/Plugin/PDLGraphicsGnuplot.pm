@@ -76,6 +76,7 @@ around _printGnuplotPipe => sub {
 sub iperl_data_representations {
 	my ($gpwin) = @_;
 	return unless $Devel::IPerl::Plugin::PDLGraphicsGnuplot::IPerl_compat;
+	return unless $gpwin->{replottable};
 	capture_stderr(sub {
 		# capture to avoid printing out the dumping warning
 		local $SIG{__WARN__} = sub {
