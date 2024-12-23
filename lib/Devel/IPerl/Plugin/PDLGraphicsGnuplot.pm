@@ -41,6 +41,11 @@ around new => sub {
 		# C<iperl_data_representations> is called.
 		capture_stderr(sub {
 			# capture to avoid printing out the dumping warning
+			local $SIG{__WARN__} = sub {
+				warn $_[0] unless $_[0] =~ m{
+					WARNING\s+-\s+dumping\s+ON
+				}xs;
+			};
 			$gpwin->option( dump => 1 );
 		});
 	}
@@ -57,6 +62,11 @@ around _printGnuplotPipe => sub {
 		#local *STDERR;
 		open STDOUT, '>', \$dump_stdout or die "Can't open STDOUT: $!";
 		#open STDERR, '>', \$dump_stderr or die "Can't open STDERR $!";
+		local $SIG{__WARN__} = sub {
+			warn $_[0] unless $_[0] =~ m{
+				\(killed\s+gnuplot\)
+			}xs;
+		};
 		return $orig->(@_);
 	} else {
 		return $orig->(@_);
@@ -68,7 +78,12 @@ sub iperl_data_representations {
 	return unless $Devel::IPerl::Plugin::PDLGraphicsGnuplot::IPerl_compat;
 	capture_stderr(sub {
 		# capture to avoid printing out the dumping warning
-		$gpwin->option( dump => 0);
+		local $SIG{__WARN__} = sub {
+			warn $_[0] unless $_[0] =~ m{
+				WARNING\s+-\s+dumping\s+OFF
+			}xs;
+		};
+		$gpwin->option( dump => 0 );
 	});
 
 	my $format = $Devel::IPerl::Plugin::PDLGraphicsGnuplot::IPerl_format;
@@ -88,6 +103,11 @@ sub iperl_data_representations {
 
 	capture_stderr( sub  {
 		# capture to avoid printing out the dumping warning
+		local $SIG{__WARN__} = sub {
+			warn $_[0] unless $_[0] =~ m{
+				WARNING\s+-\s+dumping\s+OFF
+			}xs;
+		};
 		$gpwin->option( dump => 0 );
 	} );
 
